@@ -3,108 +3,118 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>ValasaReddy Maram - Resume</title>
+    <title>ValasaReddy Maram | Portfolio</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <style>
-        :root {
-            --sidebar-bg: #f8f9fa;
-            --text-main: #333;
-            --accent: #2c3e50;
-        }
-        body { font-family: Arial, sans-serif; margin: 0; padding: 0; color: var(--text-main); line-height: 1.5; }
-        .container { display: flex; max-width: 1000px; margin: 0 auto; min-height: 100vh; border: 1px solid #ddd; }
-        
-        /* Sidebar Styles (Left Column) */
-        .sidebar { width: 35%; background-color: var(--sidebar-bg); padding: 30px; border-right: 1px solid #eee; }
-        .profile-img { width: 100%; border-radius: 4px; margin-bottom: 20px; }
-        .sidebar h2 { font-size: 18px; border-bottom: 2px solid var(--accent); padding-bottom: 5px; margin-top: 30px; color: var(--accent); }
-        .sidebar p { font-size: 14px; margin: 5px 0; }
-        .skills-list { padding: 0; list-style: none; font-size: 14px; }
-        .skills-list li { margin-bottom: 5px; }
+        * { box-sizing: border-box; font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; }
+        body { margin: 0; display: flex; background: #e9ecef; height: 100vh; overflow: hidden; }
 
-        /* Main Content Styles (Right Column) */
-        .main-content { width: 65%; padding: 40px; background: white; }
-        .header-info h1 { margin: 0; font-size: 28px; color: var(--accent); }
-        .header-info h3 { margin: 5px 0; font-weight: normal; color: #666; }
-        .section-title { font-size: 20px; font-weight: bold; border-bottom: 2px solid var(--accent); margin: 30px 0 15px 0; color: var(--accent); text-transform: uppercase; }
-        .job-title { font-weight: bold; margin-bottom: 2px; }
-        .company-name { font-style: italic; color: #555; margin-bottom: 10px; }
-        .date { font-size: 13px; color: #888; }
-        ul { padding-left: 20px; font-size: 14px; }
-        li { margin-bottom: 8px; }
+        /* Sidebar Styling */
+        .sidebar { width: 300px; background: #2c3e50; color: white; display: flex; flex-direction: column; align-items: center; padding: 40px 20px; text-align: center; position: relative; }
+        .profile-img-circle { width: 120px; height: 120px; border-radius: 50%; border: 4px solid #34495e; margin-bottom: 20px; object-fit: cover; }
+        .sidebar h2 { margin: 10px 0 5px; font-size: 22px; }
+        .sidebar p { color: #bdc3c7; font-size: 14px; margin-bottom: 30px; }
+        .contact-info { font-size: 13px; color: #ecf0f1; line-height: 2; margin-bottom: 30px; }
+        .download-btn-outline { border: 1px solid white; color: white; padding: 10px 20px; text-decoration: none; border-radius: 5px; font-size: 14px; transition: 0.3s; }
+        .download-btn-outline:hover { background: white; color: #2c3e50; }
+
+        /* Navigation Icons (Right Side of Sidebar) */
+        .nav-menu { position: absolute; right: 0; top: 50px; background: white; border-radius: 10px 0 0 10px; display: flex; flex-direction: column; box-shadow: -2px 0 5px rgba(0,0,0,0.1); }
+        .nav-item { padding: 15px; color: #7f8c8d; cursor: pointer; transition: 0.3s; font-size: 20px; text-align: center; }
+        .nav-item:hover, .nav-item.active { color: #27ae60; border-right: 3px solid #27ae60; }
+
+        /* Main Content Area */
+        .main-container { flex-grow: 1; padding: 60px; display: flex; align-items: center; justify-content: center; position: relative; }
+        .content-card { background: white; width: 100%; max-width: 800px; border-radius: 15px; display: flex; overflow: hidden; box-shadow: 0 10px 30px rgba(0,0,0,0.1); min-height: 500px; }
+        
+        .tab-content { padding: 40px; width: 60%; display: none; }
+        .tab-content.active { display: block; animation: fadeIn 0.5s ease; }
+        .image-side { width: 40%; background: #fdfdfd; display: flex; align-items: center; justify-content: center; overflow: hidden; }
+        .image-side img { width: 120%; height: 100%; object-fit: cover; clip-path: circle(70% at 90% 50%); }
+
+        @keyframes fadeIn { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }
+
+        /* Typography */
+        .role-tag { color: #95a5a6; text-transform: uppercase; font-size: 12px; letter-spacing: 1px; font-weight: bold; }
+        h1 { font-size: 42px; margin: 10px 0; color: #2c3e50; }
+        .btn-action { background: #27ae60; color: white; padding: 12px 25px; border: none; border-radius: 5px; cursor: pointer; margin-top: 20px; display: inline-block; text-decoration: none; }
+        .skill-badge { display: inline-block; background: #ecf0f1; padding: 5px 12px; border-radius: 20px; margin: 5px; font-size: 13px; color: #34495e; border: 1px solid #dcdde1; }
     </style>
 </head>
 <body>
 
-<div class="container">
     <div class="sidebar">
-        <img src="profile.jpg" alt="ValasaReddy Maram" class="profile-img">
+        <img src="profile.jpg" alt="ValasaReddy Maram" class="profile-img-circle">
+        <h2>ValasaReddy Maram</h2>
+        <p>Cloud Platform & FinOps Engineer</p>
         
-        <h2>PERSONAL INFORMATION</h2>
-        <p><strong>Email:</strong> valasa.maram@gmail.com</p>
-        <p><strong>Mobile:</strong> (+91) 9030332025</p>
-        <p><strong>Location:</strong> Hyderabad, India</p>
-        
-        <h2>KEY SKILLS</h2>
-        <ul class="skills-list">
-            <li>Azure Kubernetes Service</li>
-            <li>Cloud Networking</li>
-            <li>Terraform (IaC)</li>
-            <li>Cost Optimization</li>
-            <li>Power BI Analytics</li>
-            <li>Python Automation</li>
-            <li>SQL Database</li>
-        </ul>
-
-        <h2>EDUCATION</h2>
-        <p><strong>2015 - 2019</strong></p>
-        <p>B.Tech/B.Ε.</p>
-        <p>JNTU</p>
-
-        <h2>LANGUAGES</h2>
-        <p>• Telugu</p>
-        <p>• English</p>
-    </div>
-
-    <div class="main-content">
-        <div class="header-info">
-            <h1>ValasaReddy Maram</h1>
-            <h3>Cloud Platform & FinOps Engineer</h3>
+        <div class="contact-info">
+            <i class="fas fa-phone"></i> +91 9030332025<br>
+            <i class="fas fa-envelope"></i> valasa.maram@gmail.com
         </div>
 
-        <div class="section-title">Profile Summary</div>
-        <p style="font-size: 14px;">
-            Results-driven Senior Cloud & FinOps Engineer with over 6 years of expertise at Tata Consultancy Services[cite: 7]. 
-            Achieved significant reduction in operational costs by 25% through innovative automation with Python and real-time Power BI analytics[cite: 8, 75].
-        </p>
+        <a href="Resume.pdf" class="download-btn-outline">Download CV</a>
 
-        <div class="section-title">Work Experience</div>
-        
-        <div class="job-item">
-            <div class="job-title">Senior Cloud Platform & FinOps Engineer</div>
-            <div class="company-name">Tata Consultancy Services (TCS) | Jul 2019 - Present</div>
-            <ul>
-                <li>Designed and maintained scalable cloud infrastructure on Azure using Terraform[cite: 51, 69].</li>
-                <li>Implemented organizational compliance and spearheaded automated cost optimization initiatives[cite: 52, 74].</li>
-                <li>Managed AKS clusters, enhancing performance and troubleshooting workloads[cite: 54, 71].</li>
-                <li>Developed Power BI dashboards for cost visualization and forecasting[cite: 53, 76].</li>
-            </ul>
+        <div class="nav-menu">
+            <div class="nav-item active" onclick="showTab('profile')"><i class="fas fa-user"></i></div>
+            <div class="nav-item" onclick="showTab('experience')"><i class="fas fa-briefcase"></i></div>
+            <div class="nav-item" onclick="showTab('skills')"><i class="fas fa-graduation-cap"></i></div>
         </div>
-
-        <div class="section-title">Key Projects</div>
-        
-        <p><strong>Cloud Cost Optimization with FinOps Dashboards</strong></p>
-        <ul>
-            <li>Designed an automated solution utilizing Azure Cost Management APIs, Python, and Power BI[cite: 74].</li>
-            <li>Achieved 25% reduction in Azure costs through strategic resource rightsizing[cite: 75].</li>
-        </ul>
-
-        <p><strong>Automated Infrastructure Deployment</strong></p>
-        <ul>
-            <li>Developed Terraform-based IaC framework integrated with Azure DevOps[cite: 68, 70].</li>
-            <li>Automated the deployment of Azure Kubernetes Service (AKS)[cite: 71].</li>
-        </ul>
     </div>
-</div>
 
+    <div class="main-container">
+        <div class="content-card">
+            
+            <div id="profile" class="tab-content active">
+                <span class="role-tag">Introduction</span>
+                <h1>ValasaReddy Maram</h1>
+                <p>Results-driven Senior Cloud & FinOps Engineer with over 6 years of expertise at <strong>Tata Consultancy Services</strong>[cite: 7]. I specialize in architecting Terraform-based IaC frameworks and reducing cloud expenses by <strong>25%</strong> through innovative automation[cite: 8].</p>
+                <a href="mailto:valasa.maram@gmail.com" class="btn-action">Contact Me</a>
+            </div>
+
+            <div id="experience" class="tab-content">
+                <span class="role-tag">Work History</span>
+                <h2>Tata Consultancy Services</h2>
+                <p><strong>Senior Engineer (2019 - Present)</strong> [cite: 33, 34]</p>
+                <ul>
+                    <li>Spearheaded 25% cost reduction in Azure[cite: 75].</li>
+                    <li>Automated AKS deployments using Terraform[cite: 71].</li>
+                    <li>Developed Power BI dashboards for cost visualization[cite: 53].</li>
+                </ul>
+            </div>
+
+            <div id="skills" class="tab-content">
+                <span class="role-tag">Technical Expertise</span>
+                <h2>Cloud & Infrastructure</h2>
+                <div class="skill-badge">Azure Kubernetes Service (AKS)</div>
+                <div class="skill-badge">Terraform (IaC)</div>
+                <div class="skill-badge">FinOps / Cost Management</div>
+                <div class="skill-badge">Python & Automation</div>
+                <div class="skill-badge">Power BI Analytics</div>
+                <div class="skill-badge">SQL Database</div>
+            </div>
+
+            <div class="image-side">
+                <img src="profile.jpg" alt="Profile Large">
+            </div>
+        </div>
+    </div>
+
+    <script>
+        function showTab(tabId) {
+            // Hide all tabs
+            document.querySelectorAll('.tab-content').forEach(tab => {
+                tab.classList.remove('active');
+            });
+            // Show selected tab
+            document.getElementById(tabId).classList.add('active');
+            
+            // Update active icon
+            document.querySelectorAll('.nav-item').forEach(item => {
+                item.classList.remove('active');
+            });
+            event.currentTarget.classList.add('active');
+        }
+    </script>
 </body>
 </html>
