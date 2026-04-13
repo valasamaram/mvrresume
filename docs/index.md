@@ -1,5 +1,5 @@
 # ValasaReddy Maram
-**Cloud Platform & FinOps Engineer** 📍 Hyderabad, India | ✉️ valasa.maram@gmail.com | 📱 (+91) 9030332025
+**Cloud Platform & FinOps Engineer** 📍 Hyderabad, India | ✉️ valasa.maram@gmail.com 
 
 ---
 
