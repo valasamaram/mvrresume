@@ -9,7 +9,7 @@
         :root {
             --bg-dark: #111111;
             --bg-content: #181818;
-            --accent: #00bcd4; /* Cyan accent from image */
+            --accent: #00bcd4; /* Cyan accent */
             --text-gray: #a0a0a0;
         }
 
@@ -28,10 +28,10 @@
         }
         .logo { font-weight: 900; color: var(--accent); font-size: 24px; margin-bottom: 50px; }
         .nav-icon { 
-            color: #444; margin: 20px 0; font-size: 20px; cursor: pointer; transition: 0.3s;
+            color: #444; margin: 18px 0; font-size: 20px; cursor: pointer; transition: 0.3s;
         }
         .nav-icon:hover, .nav-icon.active { color: var(--accent); }
-        .download-icon { margin-top: auto; color: var(--accent); font-size: 24px; cursor: pointer; }
+        .download-icon { margin-top: auto; color: var(--accent); font-size: 24px; cursor: pointer; text-decoration: none; }
 
         /* 2. PROFILE IMAGE PANE (MIDDLE) */
         .profile-pane {
@@ -64,8 +64,8 @@
         @keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
 
         h2 { font-size: 60px; margin: 0; font-weight: 800; text-transform: lowercase; }
-        .sub-header { color: var(--accent); font-style: italic; margin-bottom: 40px; border-bottom: 1px solid #333; padding-bottom: 20px; }
-        .description { color: var(--text-gray); line-height: 1.8; font-size: 16px; max-width: 600px; }
+        .sub-header { color: var(--accent); font-style: italic; margin-bottom: 40px; border-bottom: 1px solid #333; padding-bottom: 20px; text-transform: lowercase; }
+        .description { color: var(--text-gray); line-height: 1.8; font-size: 16px; max-width: 650px; }
 
         /* Progress Bar Styles */
         .skill-container { margin-top: 50px; }
@@ -73,32 +73,37 @@
         .progress-bg { background: #333; height: 4px; width: 100%; margin-bottom: 25px; position: relative; }
         .progress-fill { background: var(--accent); height: 100%; position: absolute; left: 0; top: 0; }
 
-        /* List styles */
+        /* List and Project styles */
         .exp-list { list-style: none; padding: 0; color: var(--text-gray); }
-        .exp-list li { margin-bottom: 20px; padding-left: 20px; border-left: 2px solid var(--accent); }
+        .exp-list li { margin-bottom: 30px; padding-left: 20px; border-left: 2px solid var(--accent); }
+        .project-item { margin-bottom: 40px; }
+        .project-item h3 { color: white; margin-bottom: 10px; font-size: 22px; }
+        .project-item ul { padding-left: 20px; color: var(--text-gray); }
+        .cert-item { display: flex; align-items: center; background: #222; padding: 20px; border-radius: 8px; margin-bottom: 15px; }
+        .cert-item i { font-size: 30px; color: var(--accent); margin-right: 20px; }
     </style>
 </head>
 <body>
 
     <div class="sidebar-icons">
         <div class="logo">VM</div>
-        <i class="fas fa-user nav-icon active" onclick="tab(event, 'intro')"></i>
-        <i class="fas fa-briefcase nav-icon" onclick="tab(event, 'exp')"></i>
-        <i class="fas fa-graduation-cap nav-icon" onclick="tab(event, 'edu')"></i>
-        <i class="fas fa-code-branch nav-icon" onclick="tab(event, 'pro')"></i>
-        <i class="fas fa-envelope nav-icon" onclick="tab(event, 'contact')"></i>
-        <a href="Resume.pdf" class="download-icon"><i class="fas fa-cloud-download-alt"></i></a>
+        <i class="fas fa-user nav-icon active" title="Introduction" onclick="tab(event, 'intro')"></i>
+        <i class="fas fa-briefcase nav-icon" title="Experience" onclick="tab(event, 'exp')"></i>
+        <i class="fas fa-graduation-cap nav-icon" title="Education" onclick="tab(event, 'edu')"></i>
+        <i class="fas fa-code-branch nav-icon" title="Projects" onclick="tab(event, 'pro')"></i>
+        <i class="fas fa-medal nav-icon" title="Certifications" onclick="tab(event, 'cert')"></i>
+        <i class="fas fa-envelope nav-icon" title="Contact" onclick="tab(event, 'contact')"></i>
+        <a href="Resume.pdf" class="download-icon" title="Download CV"><i class="fas fa-cloud-download-alt"></i></a>
     </div>
 
     <div class="profile-pane">
-        <img src="docs/profile.jpeg" alt="ValasaReddy Maram">
+        <img src="profile.jpeg" alt="ValasaReddy Maram">
         <div class="profile-overlay">
             <h1>ValasaReddy Maram</h1>
             <div class="title">Senior Cloud & FinOps Engineer</div>
             <div class="social-links">
-                <i class="fab fa-facebook-f"></i>
-                <i class="fab fa-linkedin-in"></i>
-                <i class="fab fa-github"></i>
+                <i class="fab fa-linkedin-in" onclick="window.open('#')"></i>
+                <i class="fab fa-github" onclick="window.open('#')"></i>
             </div>
         </div>
     </div>
@@ -106,60 +111,190 @@
     <div class="content-pane">
         
         <div id="intro" class="tab-content active">
-            <h2>resume</h2>
-            <div class="sub-header">6+ years in cloud / finops expert / tcs [cite: 7, 17]</div>
+            <h2>introduction</h2>
+            <div class="sub-header"><h3>Cloud(Azure) Platform / Finops Expert / TCS</h3></div>
             <p class="description">
-                Senior Cloud & FinOps Engineer with extensive expertise at **Tata Consultancy Services**. 
-                Proven ability in optimizing Azure functionality, achieving a **25% reduction** in cloud expenses through innovative automation and real-time analytics[cite: 8, 75].
+                Results-driven Senior Cloud & FinOps Engineer with over 6 years of expertise at Tata Consultancy Services, focusing on designing and managing scalable Azure environments. Skilled in architecting Terraform-based Infrastructure as Code (IaC) frameworks, optimizing financial governance, and implementing cost-savingstrategies that reduced cloud expenses by 25% through innovative automation with Python and real-time Power BI analytics. Proficient in managing Azure Kubernetes Service (AKS) clusters, enhancing performance, and ensuring security compliance. Recognized for developing impactful dashboards for cost visualization and leveraging best practices in cloud networking and sustainability reporting. Committed to driving operational efficiencies and fostering resource optimization to support organizational goals.
             </p>
             
             <div class="skill-container">
-                <h3><i class="fas fa-tachometer-alt" style="color:var(--accent)"></i> skills</h3>
-                
-                <div class="skill-label"><span>azure kubernetes service (aks)</span><span>95%</span></div>
+                <h3><i class="fas fa-tachometer-alt" style="color:var(--accent)"></i> tech stack</h3>
+                <<div class="skill-label"><span>Microsoft Azure</span><span>95%</span></div>
                 <div class="progress-bg"><div class="progress-fill" style="width: 95%"></div></div>
 
-                <div class="skill-label"><span>terraform (iac)</span><span>91%</span></div>
+                <div class="skill-label"><span>Terraform (IaC)</span><span>91%</span></div>
                 <div class="progress-bg"><div class="progress-fill" style="width: 91%"></div></div>
 
-                <div class="skill-label"><span>finops / cost management</span><span>98%</span></div>
+                <div class="skill-label"><span>FinOps / Cost Management</span><span>98%</span></div>
                 <div class="progress-bg"><div class="progress-fill" style="width: 98%"></div></div>
 
-                <div class="skill-label"><span>python automation</span><span>88%</span></div>
+                <div class="skill-label"><span>Cloudability</span><span>98%</span></div>
+                <div class="progress-bg"><div class="progress-fill" style="width: 98%"></div></div>
+
+                <div class="skill-label"><span>Microsoft Azure Kubernetes Service (AKS)</span><span>95%</span></div>
+                <div class="progress-bg"><div class="progress-fill" style="width: 95%"></div></div>
+
+
+                <div class="skill-label"><span>Power BI Analytics</span><span>90%</span></div>
+                <div class="progress-bg"><div class="progress-fill" style="width: 90%"></div></div>
+
+                <div class="skill-label"><span>Python Automation</span><span>88%</span></div>
+                <div class="progress-bg"><div class="progress-fill" style="width: 88%"></div></div>
+
+                <div class="skill-label"><span>Github / Github Actions</span><span>88%</span></div>
+                <div class="progress-bg"><div class="progress-fill" style="width: 88%"></div></div>
+
+                <div class="skill-label"><span>SQL database</span><span>88%</span></div>
                 <div class="progress-bg"><div class="progress-fill" style="width: 88%"></div></div>
             </div>
         </div>
 
         <div id="exp" class="tab-content">
             <h2>experience</h2>
-            <div class="sub-header">professional journey at tcs [cite: 7, 36]</div>
+            <div class="sub-header">professional journey at tcs </div>
             <ul class="exp-list">
                 <li>
                     <strong>Senior Cloud & FinOps Engineer</strong><br>
-                    Tata Consultancy Services | 2019 - Present [cite: 33, 34]<br>
-                    Architected Terraform frameworks and managed AKS cluster performance[cite: 51, 54].
+                    Tata Consultancy Services | July 2019 - Present <br><br><br>
+                    Designed, deployed, and maintained scalable cloud infrastructure on Azure. <br>
+                    Architected a Terraform-based IaC framework for resource provisioning.  <br>
+                    Implemented organizational compliance and optimized Azure expenditure.  <br>
+                    Spearheaded automated cloud cost optimization initiatives using Python and cloudability,achieving significant savings.  <br>
+                    Developed Power BI dashboards for cost visualization and forecasting.  <br>
+                    Collaborated on cloud security best practices and access management.  <br>
+                    Managed AKS clusters, enhancing performance and troubleshooting workloads. <br>
+                    Designed and maintained Github action pipelines in a secured way. <br>
+                    Implemented and managed Azure RBAC to improve security posture and ensure compliance with organizational policies.  <br>
+                    Developed and monitored cost KPIs. <br>
+                    Designed and deployed serverless solutions using Azure Functions and Logic apps  to orchestrate business workflows. <br>
                 </li>
             </ul>
         </div>
 
+        <div id="pro" class="tab-content">
+            <h2>projects</h2>
+            <div class="sub-header">key cloud & automation initiatives</div>
+            
+            <div class="project-item">
+                <h3>Cloud Cost Optimization with FinOps Dashboards </h3>
+                <ul>
+                    <li>Designed an automated solution utilizing Azure Cost Management APIs and Python.</li>
+                    <li>Integrated Power BI for real-time cost visualization and financial forecasting.</li>
+                    <li>Achieved a significant 25% reduction in Azure costs through rightsizing.</li>
+                </ul>
+            </div>
+
+            <div class="project-item">
+                <h3>Automated Infrastructure Deployment </h3>
+                <ul>
+                    <li>Developed a Terraform IaC framework integrated with Github Actions for CI/CD.</li>
+                    <li>Automated the deployment of Azure Services, enhancing platform scalability.</li>
+                    <li>Implemented resource governance strategies for optimized allocation.</li>
+                </ul>
+            </div>
+
+            <div class="project-item">
+                <h3>AKS Platform Optimization </h3>
+                <ul>
+                    <li> Developed and integrated advanced monitoring systems to ensure operational efficiency and performance tracking.</li>
+                    <li>Automated the deployment of AKS clusters, enhancing platform scalability.</li>
+                    <li>Achieved significant reduction in operational costs by optimizing resource allocation and implementing scalable solutions..</li>
+                </ul>
+            </div>
+        </div>
+
+        <div id="cert" class="tab-content">
+            <h2>certifications</h2>
+            <div class="sub-header">professional credentials </div>
+            
+            <div class="cert-item">
+                <i class="fas fa-certificate"></i>
+                <div>
+                    <strong>Microsoft Certified: Azure Fundamentals </strong><br>
+                </div>
+            </div>
+
+            <div class="cert-item">
+                <i class="fas fa-certificate"></i>
+                <div>
+                    <strong>Microsoft Certified: Power BI Data Analyst Associate </strong><br>
+                </div>
+            </div>
+
+            <div class="cert-item">
+                <i class="fas fa-certificate"></i>
+                <div>
+                    <strong>Terraform Associate (003) Certification </strong><br>
+                </div>
+            </div>
+            
+            <div class="cert-item">
+                <i class="fas fa-shield-alt"></i>
+                <div>
+                    <strong>Microsoft Certified: Azure Administrator Associate </strong><br>
+                    
+                </div>
+            </div>
+        </div>
+
         <div id="edu" class="tab-content">
             <h2>education</h2>
-            <div class="sub-header">academic foundation [cite: 12]</div>
+            <div class="sub-header">academic foundation</div>
             <p class="description">
                 <strong>B.Tech / B.E.</strong><br>
-                Jawaharlal Nehru Technological University (JNTU) [cite: 21]<br>
-                Class of 2019 [cite: 15]
+                Jawaharlal Nehru Technological University (JNTU)<br>
+                Class of 2015-2019 
+            </p>
+            <p class="description">
+                <strong>Intermediate (12th Grade).</strong><br>
+                Sri Chaitanya Junior College<br>
+                Class of 2013-2015 
+            </p>
+            <p class="description">
+                <strong>SSC 10th Grade.</strong><br>
+                Chimakurthy High School<br>
+                Class of 2013
             </p>
         </div>
 
         <div id="contact" class="tab-content">
-            <h2>contact</h2>
-            <div class="sub-header">let's build efficient cloud solutions</div>
-            <p class="description">
-                📍 Hyderabad, India [cite: 48, 61]<br>
-                ✉️ valasa.maram@gmail.com [cite: 3]<br>
-                📱 (+91) 9030332025 [cite: 14]
-            </p>
+    <h2>contact</h2>
+    <div class="sub-header">let's build efficient cloud solutions</div>
+    
+    <div class="description">
+        <p>📍 Hyderabad, India </p>
+        <p>✉️ valasa.maram@gmail.com </p>
+        <p>📱 (+91) 9030332025 </p>
+    </div>
+
+        <style>
+            .contact-form { margin-top: 30px; max-width: 500px; }
+            .form-group { margin-bottom: 20px; }
+            .form-group input, .form-group textarea {
+                width: 100%; padding: 12px; background: #222; border: 1px solid #333;
+                color: white; border-radius: 4px; outline: none; transition: 0.3s;
+            }
+            .form-group input:focus, .form-group textarea:focus { border-color: var(--accent); }
+            .submit-btn {
+                background: var(--accent); color: black; border: none;
+                padding: 12px 30px; font-weight: bold; cursor: pointer;
+                text-transform: uppercase; letter-spacing: 1px; width: 100%;
+            }
+            .submit-btn:hover { opacity: 0.9; }
+        </style>
+
+        <form action="https://formspree.io/f/mqewkrqk" method="POST" class="contact-form">
+            <div class="form-group">
+                <input type="text" name="name" placeholder="YOUR NAME" required>
+            </div>
+            <div class="form-group">
+                <input type="email" name="_replyto" placeholder="YOUR EMAIL" required>
+            </div>
+            <div class="form-group">
+                <textarea name="message" rows="5" placeholder="YOUR MESSAGE" required></textarea>
+            </div>
+            <button type="submit" class="submit-btn">Send Message</button>
+        </form>
         </div>
 
     </div>
@@ -169,7 +304,9 @@
             document.querySelectorAll('.tab-content').forEach(b => b.classList.remove('active'));
             document.querySelectorAll('.nav-icon').forEach(b => b.classList.remove('active'));
             document.getElementById(id).classList.add('active');
-            e.currentTarget.classList.add('active');
+            if(e.currentTarget.classList.contains('nav-icon')) {
+                e.currentTarget.classList.add('active');
+            }
         }
     </script>
 </body>
