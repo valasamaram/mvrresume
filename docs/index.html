@@ -6,113 +6,143 @@
     <title>ValasaReddy Maram | Portfolio</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <style>
-        * { box-sizing: border-box; font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; }
-        body { margin: 0; display: flex; background: #e9ecef; height: 100vh; overflow: hidden; }
+        * { box-sizing: border-box; font-family: 'Inter', sans-serif; }
+        body { margin: 0; display: flex; background: #f4f7f6; height: 100vh; overflow: hidden; }
 
-        /* Sidebar Styling */
-        .sidebar { width: 300px; background: #2c3e50; color: white; display: flex; flex-direction: column; align-items: center; padding: 40px 20px; text-align: center; position: relative; }
-        .profile-img-circle { width: 120px; height: 120px; border-radius: 50%; border: 4px solid #34495e; margin-bottom: 20px; object-fit: cover; }
-        .sidebar h2 { margin: 10px 0 5px; font-size: 22px; }
-        .sidebar p { color: #bdc3c7; font-size: 14px; margin-bottom: 30px; }
-        .contact-info { font-size: 13px; color: #ecf0f1; line-height: 2; margin-bottom: 30px; }
-        .download-btn-outline { border: 1px solid white; color: white; padding: 10px 20px; text-decoration: none; border-radius: 5px; font-size: 14px; transition: 0.3s; }
-        .download-btn-outline:hover { background: white; color: #2c3e50; }
-
-        /* Navigation Icons (Right Side of Sidebar) */
-        .nav-menu { position: absolute; right: 0; top: 50px; background: white; border-radius: 10px 0 0 10px; display: flex; flex-direction: column; box-shadow: -2px 0 5px rgba(0,0,0,0.1); }
-        .nav-item { padding: 15px; color: #7f8c8d; cursor: pointer; transition: 0.3s; font-size: 20px; text-align: center; }
-        .nav-item:hover, .nav-item.active { color: #27ae60; border-right: 3px solid #27ae60; }
+        /* Left Menu Sidebar */
+        .side-menu { width: 280px; background: #ffffff; border-right: 1px solid #e0e0e0; display: flex; flex-direction: column; padding: 30px 0; }
+        .profile-section { text-align: center; padding: 0 20px 20px; border-bottom: 1px solid #f0f0f0; }
+        .profile-img { width: 100px; height: 100px; border-radius: 50%; object-fit: cover; border: 3px solid #27ae60; }
+        .profile-section h2 { font-size: 18px; margin: 15px 0 5px; color: #2c3e50; }
+        
+        .nav-links { flex-grow: 1; margin-top: 20px; }
+        .nav-item { padding: 15px 30px; cursor: pointer; display: flex; align-items: center; color: #7f8c8d; transition: 0.3s; font-size: 14px; font-weight: 500; }
+        .nav-item i { width: 25px; margin-right: 15px; font-size: 18px; }
+        .nav-item:hover { background: #f9f9f9; color: #27ae60; }
+        .nav-item.active { background: #e8f5e9; color: #27ae60; border-right: 4px solid #27ae60; }
 
         /* Main Content Area */
-        .main-container { flex-grow: 1; padding: 60px; display: flex; align-items: center; justify-content: center; position: relative; }
-        .content-card { background: white; width: 100%; max-width: 800px; border-radius: 15px; display: flex; overflow: hidden; box-shadow: 0 10px 30px rgba(0,0,0,0.1); min-height: 500px; }
+        .main-content { flex-grow: 1; overflow-y: auto; padding: 60px; display: flex; justify-content: center; }
+        .content-card { background: white; width: 100%; max-width: 900px; border-radius: 20px; box-shadow: 0 10px 40px rgba(0,0,0,0.05); display: flex; overflow: hidden; min-height: 600px; position: relative; }
         
-        .tab-content { padding: 40px; width: 60%; display: none; }
-        .tab-content.active { display: block; animation: fadeIn 0.5s ease; }
-        .image-side { width: 40%; background: #fdfdfd; display: flex; align-items: center; justify-content: center; overflow: hidden; }
-        .image-side img { width: 120%; height: 100%; object-fit: cover; clip-path: circle(70% at 90% 50%); }
+        .text-panel { width: 60%; padding: 50px; }
+        .image-panel { width: 40%; background: #fafafa; display: flex; align-items: center; justify-content: center; overflow: hidden; }
+        .image-panel img { width: 150%; height: 100%; object-fit: cover; clip-path: circle(75% at 90% 50%); }
 
-        @keyframes fadeIn { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }
+        .tab-pane { display: none; animation: fadeIn 0.4s ease; }
+        .tab-pane.active { display: block; }
+        @keyframes fadeIn { from { opacity: 0; transform: translateX(10px); } to { opacity: 1; transform: translateX(0); } }
 
-        /* Typography */
-        .role-tag { color: #95a5a6; text-transform: uppercase; font-size: 12px; letter-spacing: 1px; font-weight: bold; }
-        h1 { font-size: 42px; margin: 10px 0; color: #2c3e50; }
-        .btn-action { background: #27ae60; color: white; padding: 12px 25px; border: none; border-radius: 5px; cursor: pointer; margin-top: 20px; display: inline-block; text-decoration: none; }
-        .skill-badge { display: inline-block; background: #ecf0f1; padding: 5px 12px; border-radius: 20px; margin: 5px; font-size: 13px; color: #34495e; border: 1px solid #dcdde1; }
+        /* Section Styling */
+        .section-tag { color: #27ae60; text-transform: uppercase; font-size: 11px; font-weight: 700; letter-spacing: 1.5px; display: block; margin-bottom: 10px; }
+        h1 { font-size: 36px; color: #2c3e50; margin: 0 0 20px; }
+        h3 { color: #2c3e50; margin-top: 25px; }
+        .skill-badge { display: inline-block; background: #f0f2f5; padding: 6px 15px; border-radius: 50px; margin: 4px; font-size: 13px; color: #4b5563; }
+        .btn-cv { background: #2c3e50; color: white; padding: 12px 25px; border-radius: 8px; text-decoration: none; display: inline-block; margin-top: 20px; font-size: 14px; }
     </style>
 </head>
 <body>
 
-    <div class="sidebar">
-        <img src="profile.jpg" alt="ValasaReddy Maram" class="profile-img-circle">
-        <h2>ValasaReddy Maram</h2>
-        <p>Cloud Platform & FinOps Engineer</p>
-        
-        <div class="contact-info">
-            <!-- <i class="fas fa-phone"></i> +91 ***<br> -->
-            <i class="fas fa-envelope"></i> valasa.maram@gmail.com
+    <div class="side-menu">
+        <div class="profile-section">
+            <img src="profile.jpg" alt="Profile" class="profile-img">
+            <h2>V. Maram</h2>
         </div>
-
-        <a href="Resume.pdf" class="download-btn-outline">Download CV</a>
-
-        <div class="nav-menu">
-            <div class="nav-item active" onclick="showTab('profile')"><i class="fas fa-user"></i></div>
-            <div class="nav-item" onclick="showTab('experience')"><i class="fas fa-briefcase"></i></div>
-            <div class="nav-item" onclick="showTab('skills')"><i class="fas fa-graduation-cap"></i></div>
+        <div class="nav-links">
+            <div class="nav-item active" onclick="switchTab(event, 'intro')"><i class="fas fa-user"></i> Introduction</div>
+            <div class="nav-item" onclick="switchTab(event, 'education')"><i class="fas fa-graduation-cap"></i> Education</div>
+            <div class="nav-item" onclick="switchTab(event, 'experience')"><i class="fas fa-briefcase"></i> Work Experience</div>
+            <div class="nav-item" onclick="switchTab(event, 'projects')"><i class="fas fa-project-diagram"></i> Projects</div>
+            <div class="nav-item" onclick="switchTab(event, 'certificates')"><i class="fas fa-certificate"></i> Certificates</div>
+            <div class="nav-item" onclick="switchTab(event, 'skills')"><i class="fas fa-tools"></i> Skills</div>
+            <div class="nav-item" onclick="switchTab(event, 'details')"><i class="fas fa-info-circle"></i> Personal Details</div>
+        </div>
+        <div style="padding: 20px; text-align: center;">
+            <a href="Resume.pdf" class="btn-cv">Download CV</a>
         </div>
     </div>
 
-    <div class="main-container">
+    <div class="main-content">
         <div class="content-card">
-            
-            <div id="profile" class="tab-content active">
-                <span class="role-tag">Introduction</span>
-                <h1>ValasaReddy Maram</h1>
-                <p>Results-driven Senior Cloud & FinOps Engineer with over 6 years of expertise at <strong>Tata Consultancy Services</strong>[cite: 7]. I specialize in architecting Terraform-based IaC frameworks and reducing cloud expenses by <strong>25%</strong> through innovative automation[cite: 8].</p>
-                <a href="mailto:valasa.maram@gmail.com" class="btn-action">Contact Me</a>
+            <div class="text-panel">
+                
+                <div id="intro" class="tab-pane active">
+                    <span class="section-tag">Welcome</span>
+                    <h1>ValasaReddy Maram</h1>
+                    <p>Senior Cloud & FinOps Engineer with <strong>6+ years</strong> of experience at <strong>Tata Consultancy Services</strong>[cite: 7]. I specialize in Azure infrastructure and cost governance, helping organizations reduce cloud spend by <strong>25%</strong>[cite: 8].</p>
+                </div>
+
+                <div id="education" class="tab-pane">
+                    <span class="section-tag">Academic Background</span>
+                    <h1>Education</h1>
+                    <h3>B.Tech / B.E.</h3>
+                    <p>Jawaharlal Nehru Technological University (JNTU) [cite: 21]<br>Graduated: 2019 [cite: 15]</p>
+                </div>
+
+                <div id="experience" class="tab-pane">
+                    <span class="section-tag">Career Path</span>
+                    <h1>Work Experience</h1>
+                    <h3>Tata Consultancy Services</h3>
+                    <p><strong>Cloud Platform & FinOps Engineer</strong> (2019 - Present) [cite: 33, 34]</p>
+                    <ul>
+                        <li>Architected Terraform-based IaC frameworks[cite: 51].</li>
+                        <li>Managed AKS clusters and performance optimization[cite: 54, 55].</li>
+                        <li>Reduced Azure costs by 25% through Python automation[cite: 74, 75].</li>
+                    </ul>
+                </div>
+
+                <div id="projects" class="tab-pane">
+                    <span class="section-tag">Technical Work</span>
+                    <h1>Projects</h1>
+                    <h3>FinOps Dashboards</h3>
+                    <p>Designed automated optimization solutions using Python and Power BI to visualize cloud expenditure[cite: 73, 74].</p>
+                    <h3>AKS Infrastructure</h3>
+                    <p>Automated deployment of Azure Kubernetes Service to streamline CI/CD processes[cite: 70, 71].</p>
+                </div>
+
+                <div id="certificates" class="tab-pane">
+                    <span class="section-tag">Verified Skills</span>
+                    <h1>Certificates</h1>
+                    <p><i class="fas fa-check-circle" style="color:#27ae60"></i> Microsoft Certified Professional [cite: 45]</p>
+                    <p>Expertise in Azure Cost Management and Kubernetes Administration.</p>
+                </div>
+
+                <div id="skills" class="tab-pane">
+                    <span class="section-tag">My Toolkit</span>
+                    <h1>Technical Skills</h1>
+                    <div class="skill-badge">Azure (AKS) [cite: 35]</div>
+                    <div class="skill-badge">Terraform (IaC) [cite: 69]</div>
+                    <div class="skill-badge">FinOps [cite: 5]</div>
+                    <div class="skill-badge">Python [cite: 74]</div>
+                    <div class="skill-badge">Power BI [cite: 10]</div>
+                    <div class="skill-badge">SQL Database [cite: 27]</div>
+                </div>
+
+                <div id="details" class="tab-pane">
+                    <span class="section-tag">Get In Touch</span>
+                    <h1>Personal Details</h1>
+                    <p><strong>Location:</strong> Hyderabad, India [cite: 48]</p>
+                    <p><strong>Email:</strong> valasa.maram@gmail.com [cite: 3]</p>
+                    <p><strong>Phone:</strong> (+91) 9030332025 [cite: 14]</p>
+                    <p><strong>Languages:</strong> Telugu, English [cite: 63, 64]</p>
+                </div>
+
             </div>
 
-            <div id="experience" class="tab-content">
-                <span class="role-tag">Work History</span>
-                <h2>Tata Consultancy Services</h2>
-                <p><strong>Senior Engineer (2019 - Present)</strong> [cite: 33, 34]</p>
-                <ul>
-                    <li>Spearheaded 25% cost reduction in Azure[cite: 75].</li>
-                    <li>Automated AKS deployments using Terraform[cite: 71].</li>
-                    <li>Developed Power BI dashboards for cost visualization[cite: 53].</li>
-                </ul>
-            </div>
-
-            <div id="skills" class="tab-content">
-                <span class="role-tag">Technical Expertise</span>
-                <h2>Cloud & Infrastructure</h2>
-                <div class="skill-badge">Azure Kubernetes Service (AKS)</div>
-                <div class="skill-badge">Terraform (IaC)</div>
-                <div class="skill-badge">FinOps / Cost Management</div>
-                <div class="skill-badge">Python & Automation</div>
-                <div class="skill-badge">Power BI Analytics</div>
-                <div class="skill-badge">SQL Database</div>
-            </div>
-
-            <div class="image-side">
-                <img src="profile.jpg" alt="Profile Large">
+            <div class="image-panel">
+                <img src="profile.jpg" alt="Portfolio Image">
             </div>
         </div>
     </div>
 
     <script>
-        function showTab(tabId) {
-            // Hide all tabs
-            document.querySelectorAll('.tab-content').forEach(tab => {
-                tab.classList.remove('active');
-            });
-            // Show selected tab
-            document.getElementById(tabId).classList.add('active');
+        function switchTab(event, tabId) {
+            // Remove active classes
+            document.querySelectorAll('.tab-pane').forEach(p => p.classList.remove('active'));
+            document.querySelectorAll('.nav-item').forEach(i => i.classList.remove('active'));
             
-            // Update active icon
-            document.querySelectorAll('.nav-item').forEach(item => {
-                item.classList.remove('active');
-            });
+            // Add active classes
+            document.getElementById(tabId).classList.add('active');
             event.currentTarget.classList.add('active');
         }
     </script>
